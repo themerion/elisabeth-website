@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+<style>
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    @media (min-width: 800px) {
+        #small { display: none }
+        #large { display: block }
+    }
+    @media (max-width: 799px) {
+        #small { display: block; }
+        #large { display: none }
+        #large_content { display: none }
+    }
+
+    #large {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #large_content {
+        position: relative;
+    }
+
+    #center_img {
+        position: relative;
+        background-color: gray;
+    }
+
+    /* large_menu_item */
+
+    .large_menu_item {
+        border-radius: 20px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .large_menu_item:hover {
+        font-size: 1.2em
+    }
+</style>
+</head>
+<body>
+
+<!-- MOBILE -->
+
+<div id="small">
+    <div id="small_content">
+        <div id="small_img">
+            <img src="elisabeth-on-top.jpg" />
+        </div>
+        <div id="small_menu">
+            <div class="small_menu_item">
+                Pyssel
+            </div>
+            <div class="small_menu_item">
+                Miljö
+            </div>
+            <div class="small_menu_item">
+                Kreativitet
+            </div>
+            <div class="small_menu_item">
+                Psykologi
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DESKTOP -->
+
+<div id="large">
+    <div id="large_content">
+        <img id="center_img" src="elisabeth-in-center.jpg" />
+        <div class="large_menu_item">
+            Pyssel
+        </div>
+        <div class="large_menu_item">
+            Miljö
+        </div>
+        <div class="large_menu_item">
+            Kreativitet
+        </div>
+        <div class="large_menu_item">
+            Psykologi
+        </div>
+    </div>
+</div>
+
+<script>
+    let current = 800;
+
+    function drawLarge() {
+        let totSize, itemRadius, imgSize;
+        if(current == 800) {
+            totSize = 800;
+            itemRadius = 75;
+            imgSize = 500;
+        } else if(current == 1200) {
+            totSize = 1200;
+            itemRadius = 100;
+            imgSize = 700;
+        } else {
+            throw "Expected size to be 800 or 1200";
+        }
+
+        const scaleY = 0.8;
+        const large = document.querySelector("#large_content");
+        const menuItems = document.querySelectorAll(".large_menu_item");
+
+        large.style.width = totSize+"px";
+        large.style.height = Math.round(totSize*scaleY)+"px";
+
+        const startingOffset = Math.PI/12;
+        const margin = 30;
+
+        const centerX = totSize / 2;
+        const centerY = (totSize*scaleY / 2);
+        const increase = Math.PI*2 / menuItems.length;
+
+        const setPolarPosition = (menuItem, radians, distance) => {
+            const xpos = centerX + Math.cos(radians)*distance - itemRadius;
+            const ypos = centerY + Math.sin(radians)*distance*scaleY - itemRadius;
+
+            menuItem.style.left = xpos+"px";
+            menuItem.style.top = ypos+"px";
+        };
+
+        let angle = startingOffset;
+        for(const menuItem of menuItems) {
+            menuItem.style.position = "absolute";
+            menuItem.style.width = (itemRadius*2)+"px";
+            menuItem.style.height = (itemRadius*2)+"px";
+
+            setPolarPosition(menuItem, angle, centerX - itemRadius - margin);
+
+            angle += increase;
+        }
+
+        const cimg = document.querySelector("#center_img");
+        cimg.style.left = (centerX - imgSize/2)+"px";
+        cimg.style.top = (centerY - imgSize/2)+"px";
+        cimg.style.width = imgSize+"px";
+        cimg.style.height = imgSize+"px";
+    }
+
+    window.addEventListener('resize', evt => {
+        if(evalSize()) {
+            drawLarge();
+        }
+    });
+    
+    function evalSize() {
+        if(current != 1200 && window.innerWidth >= 1200) {
+            current = 1200;
+            return true;
+        } else if(current != 800 && window.innerWidth < 1200) {
+            current = 800;
+            return true;
+        }
+    }
+    
+    evalSize();
+    drawLarge();
+</script>
+</body>
+</html>
