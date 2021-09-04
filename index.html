@@ -2,10 +2,18 @@
 <html>
 <head>
     <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-    body {
-        padding: 0px;
+    html, body {
+        min-height: 100vh;
         margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
     }
 
     @media (min-width: 800px) {
@@ -17,6 +25,64 @@
         #large { display: none }
         #large_content { display: none }
     }
+    
+    /* HEADER */
+    
+    #header {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #header_img_container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #header_img {
+        max-width: 100%;
+    }
+    @media (max-width: 799px) {
+        #header {
+            width: 100%;
+        }
+    }
+    @media (min-width: 800px) and (max-width: 1199px) {
+        #header {
+            width: 800px;
+        }
+    }
+    @media (min-width: 1200px) {
+        #header {
+            width: 1200px;
+        }
+    }
+    
+    /* -- MOBILE -- */
+
+    #small_img {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+    }
+
+    #small_img img {
+        width: 100%;
+    }
+
+    #small_menu {
+    }
+    .small_menu_item {
+        text-align: center;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+        font-size: 24px;
+    }
+    .small_menu_item:nth-child(odd) {
+        background-color: #eeccaa;
+    }
+    .small_menu_item:nth-child(even) {
+        background-color: #eeaacc;
+    }
+
+    /* -- DESKTOP -- */
 
     #large {
         display: flex;
@@ -33,7 +99,7 @@
         background-color: gray;
     }
 
-    /* large_menu_item */
+    /* -- large_menu_item -- */
 
     .large_menu_item {
         border-radius: 20px;
@@ -46,11 +112,58 @@
     .large_menu_item:hover {
         font-size: 1.2em
     }
+
+    /* about_me */
+    #about_me {
+        padding: 20px;
+        background-color: #aaffcc;
+    }
+    #about_me h1 {
+        margin-top: 0px
+    }
+    #about_me p {
+        margin-bottom: 0px
+    }
+    @media (max-width: 799px) {
+        #about_me_container {
+            flex-grow: 1;
+            background-color: #aaffcc;
+        }
+    }
+    @media (min-width: 800px) and (max-width: 1199px) {
+        #about_me {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            max-width: 700px;
+        }
+    }
+    @media (min-width: 1200px) {
+        #about_me {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            max-width: 700px;
+        }
+    }
+
 </style>
 </head>
 <body>
 
+<div id="header">
+    <div id="header_img_container">
+        <img id="header_img" src="cropped-loggatest-hemsida.png">
+    </div>
+</div>
+
+
 <!-- MOBILE -->
+
 
 <div id="small">
     <div id="small_content">
@@ -58,39 +171,55 @@
             <img src="elisabeth-on-top.jpg" />
         </div>
         <div id="small_menu">
-            <div class="small_menu_item">
-                Pyssel
-            </div>
-            <div class="small_menu_item">
-                Miljö
-            </div>
-            <div class="small_menu_item">
-                Kreativitet
-            </div>
-            <div class="small_menu_item">
-                Psykologi
-            </div>
+            <nav>
+                <div class="small_menu_item">
+                    Pyssel
+                </div>
+                <div class="small_menu_item">
+                    Miljö
+                </div>
+                <div class="small_menu_item">
+                    Kreativitet
+                </div>
+                <div class="small_menu_item">
+                    Psykologi
+                </div>
+            </nav>
         </div>
     </div>
 </div>
 
+
 <!-- DESKTOP -->
+
 
 <div id="large">
     <div id="large_content">
         <img id="center_img" src="elisabeth-in-center.jpg" />
-        <div class="large_menu_item">
-            Pyssel
-        </div>
-        <div class="large_menu_item">
-            Miljö
-        </div>
-        <div class="large_menu_item">
-            Kreativitet
-        </div>
-        <div class="large_menu_item">
-            Psykologi
-        </div>
+        <nav>
+            <div class="large_menu_item">
+                Pyssel
+            </div>
+            <div class="large_menu_item">
+                Miljö
+            </div>
+            <div class="large_menu_item">
+                Kreativitet
+            </div>
+            <div class="large_menu_item">
+                Psykologi
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div id="about_me_container">
+    <div id="about_me">
+        <h1>Elisabeth Brånsgård</h1>
+        <p>Jag är en person som gillar humlor. Och kreativitet. Och miljö, psykologi; och jag är utbildad, och jag har erfarenhet, köp mig.</p>
+        <p>Jag har också gjort vernissage och samarbetat med folk.</p>
+    </div>
+    <div id="about_me-mobile_filler">
     </div>
 </div>
 
