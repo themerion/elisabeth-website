@@ -44,12 +44,12 @@
             width: 100%;
         }
     }
-    @media (min-width: 800px) and (max-width: 1199px) {
+    @media (min-width: 800px) and (max-width: 1499px) {
         #header {
             width: 800px;
         }
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1499px) {
         #header {
             width: 1200px;
         }
@@ -148,7 +148,7 @@
             background-color: #aaffcc;
         }
     }
-    @media (min-width: 800px) and (max-width: 1199px) {
+    @media (min-width: 800px) and (max-width: 1499px) {
         #about_me {
             margin-left: auto;
             margin-right: auto;
@@ -158,7 +158,7 @@
             max-width: 700px;
         }
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1500px) {
         #about_me {
             margin-left: auto;
             margin-right: auto;
@@ -321,10 +321,10 @@
     });
     
     function evalSize() {
-        if(current != 1200 && window.innerWidth >= 1200) {
+        if(current != 1200 && window.innerWidth >= 1500) {
             current = 1200;
             return true;
-        } else if(current != 800 && window.innerWidth < 1200) {
+        } else if(current != 800 && window.innerWidth < 1500) {
             current = 800;
             return true;
         }
