@@ -109,11 +109,28 @@
         justify-content: center;
         background-color: white;
         box-shadow: 0px 0px 10px gray;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .large_menu_item_container {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        font-size: 24px;
+        font-family:'Times New Roman', Times, serif;
+        color: black;
+        text-shadow: 0px 0px 5px white;
     }
 
     .large_menu_item:hover {
-        font-size: 1.2em
+        box-shadow: 0px 0px 10px black;
     }
+
+    
 
     /* about_me */
     #about_me {
@@ -203,19 +220,29 @@
         <img id="center_img" src="elisabeth-in-center.jpg" />
         <nav>
             <div class="large_menu_item">
-                Psykologi
+                <div class="large_menu_item_container" style="background-image: url('kategori-psykologi.jpg')">
+                    Psykologi
+                </div>
             </div>
             <div class="large_menu_item">
-                Teater
+                <div class="large_menu_item_container" style="background-image: url('kategori-teater.jpg')">
+                    Teater
+                </div>
             </div>
             <div class="large_menu_item">
-                Klimat
+                <div class="large_menu_item_container" style="background-image: url('kategori-planta.jpg')">
+                    Klimat
+                </div>
             </div>
             <div class="large_menu_item">
-                Kreativitet
+                <div class="large_menu_item_container" style="background-image: url('kategori-kreativitet.jpg')">
+                    Kreativitet
+                </div>
             </div>
             <div class="large_menu_item">
-                Pyssel
+                <div class="large_menu_item_container" style="background-image: url('kategori-pyssel.jpg')">
+                    Pyssel
+                </div>
             </div>
         </nav>
     </div>
