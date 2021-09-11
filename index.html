@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+    @font-face {
+        font-family: 'Sweet Purple';
+        src: url('sweet purple.ttf');
+    }
+
     html, body {
         min-height: 100vh;
         margin: 0px;
@@ -44,12 +49,12 @@
             width: 100%;
         }
     }
-    @media (min-width: 800px) and (max-width: 1499px) {
+    @media (min-width: 800px) and (max-width: 1999px) {
         #header {
             width: 800px;
         }
     }
-    @media (min-width: 1499px) {
+    @media (min-width: 1999px) {
         #header {
             width: 1200px;
         }
@@ -103,32 +108,56 @@
 
     .large_menu_item {
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         background-color: white;
         box-shadow: 0px 0px 10px gray;
-        cursor: pointer;
-        overflow: hidden;
+    }
+    
+    .large_menu_item a, .large_menu_item a:visited, .large_menu_item a:hover  {
+        text-decoration: none;
+        color: #222;
     }
 
-    .large_menu_item_container {
-        width: 80%;
-        height: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-size: cover;
-        font-size: 24px;
-        font-family:'Times New Roman', Times, serif;
+    .large_menu_item_text {
+        position: absolute;
+        z-index: 10;
+        bottom: -15%;
+        text-align: center;
+        width: 100%;
+        font-size: 40px;
+        font-family: 'Sweet Purple','Times New Roman', Times, serif;
         color: black;
         text-shadow: 0px 0px 5px white;
+
     }
 
-    .large_menu_item:hover {
+    .large_menu_item_image {
+        position: absolute;
+        z-index: 0;
+        top: 0px;
+        left: 0px;
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .large_menu_item_image a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+    
+
+    .large_menu_item_image img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .large_menu_item_active {
         box-shadow: 0px 0px 10px black;
     }
-
     
 
     /* about_me */
@@ -148,7 +177,7 @@
             background-color: #aaffcc;
         }
     }
-    @media (min-width: 800px) and (max-width: 1499px) {
+    @media (min-width: 800px) and (max-width: 1999px) {
         #about_me {
             margin-left: auto;
             margin-right: auto;
@@ -158,7 +187,7 @@
             max-width: 700px;
         }
     }
-    @media (min-width: 1500px) {
+    @media (min-width: 2000px) {
         #about_me {
             margin-left: auto;
             margin-right: auto;
@@ -191,7 +220,7 @@
         <div id="small_menu">
             <nav>
                 <div class="small_menu_item">
-                    Psykologi
+                    <a href="https://www.google.com">Psykologi</a>
                 </div>
                 <div class="small_menu_item">
                     Teater
@@ -219,28 +248,43 @@
         <img id="center_img" src="elisabeth-in-center.jpg" />
         <nav>
             <div class="large_menu_item">
-                <div class="large_menu_item_container" style="background-image: url('kategori-psykologi.jpg')">
-                    Psykologi
+                <div class="large_menu_item_text">
+                    <a href="https://www.google.com">Psykologi</a>
+                </div>
+                <div class="large_menu_item_image">
+                    <a href="https://www.google.com"><img src="kategori-psykologi.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
-                <div class="large_menu_item_container" style="background-image: url('kategori-teater.jpg')">
-                    Teater
+                <div class="large_menu_item_text">
+                    <a href="https://www.google.com">Teater</a>
+                </div>
+                <div class="large_menu_item_image">
+                    <a href="https://www.google.com"><img src="kategori-teater.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
-                <div class="large_menu_item_container" style="background-image: url('kategori-planta.jpg')">
-                    Klimat
+                <div class="large_menu_item_text">
+                    <a href="https://www.google.com">Klimat</a>
+                </div>
+                <div class="large_menu_item_image">
+                    <a href="https://www.google.com"><img src="kategori-planta.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
-                <div class="large_menu_item_container" style="background-image: url('kategori-kreativitet.jpg')">
-                    Kreativitet
+                <div class="large_menu_item_text">
+                    <a href="https://www.google.com">Kreativitet</a>
+                </div>
+                <div class="large_menu_item_image">
+                    <a href="https://www.google.com"><img src="kategori-kreativitet.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
-                <div class="large_menu_item_container" style="background-image: url('kategori-pyssel.jpg')">
-                    Pyssel
+                <div class="large_menu_item_text">
+                    <a href="https://www.google.com">Pyssel</a>
+                </div>
+                <div class="large_menu_item_image">
+                    <a href="https://www.google.com"><img src="kategori-pyssel.jpg"></a>
                 </div>
             </div>
         </nav>
@@ -321,10 +365,10 @@
     });
     
     function evalSize() {
-        if(current != 1200 && window.innerWidth >= 1500) {
+        if(current != 1200 && window.innerWidth >= 2000) {
             current = 1200;
             return true;
-        } else if(current != 800 && window.innerWidth < 1500) {
+        } else if(current != 800 && window.innerWidth < 2000) {
             current = 800;
             return true;
         }
@@ -332,6 +376,19 @@
     
     evalSize();
     drawLarge();
+
+/* Hightlight menu items (:hover does not quite handle both the text and the button, since the text is outside of it...)*/
+
+    const as = document.querySelectorAll(".large_menu_item a");
+    console.log(as);
+    for(const a of as) {
+        a.addEventListener("mouseenter", evt => {
+            console.log(evt.target);
+            evt.target.closest(".large_menu_item").classList.add("large_menu_item_active");
+        });
+        a.addEventListener("mouseleave", evt => evt.target.closest(".large_menu_item").classList.remove("large_menu_item_active"));
+    }
+
 </script>
 </body>
 </html>
