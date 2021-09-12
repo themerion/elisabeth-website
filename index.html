@@ -31,7 +31,9 @@
         #large_content { display: none }
     }
     
-    /* HEADER */
+    /* =====================================
+         header
+       ===================================== */
     
     #header {
         margin-left: auto;
@@ -104,7 +106,9 @@
         background-color: gray;
     }
 
-    /* -- large_menu_item -- */
+    /* =====================================
+         large_menu_item
+       ===================================== */
 
     .large_menu_item {
         border-radius: 50%;
@@ -162,41 +166,44 @@
         text-shadow: 0px 0px 10px #3b8;
     }
 
-    /* about_me */
+    /* =====================================
+         about_me
+       ===================================== */
     #about_me {
         padding: 20px;
-        background-color: #aaffcc;
     }
     #about_me h1 {
-        margin-top: 0px
+        text-align: center;
+        margin-top: 0px;
+        font-family: 'Sweet Purple';
+        font-size: 36px;
     }
-    #about_me p {
-        margin-bottom: 0px
+    #about_me h2 {
+        text-align: center;
+        font-family: 'Sweet Purple';
+        font-size: 24px;
     }
+
     @media (max-width: 799px) {
-        #about_me_container {
-            flex-grow: 1;
-            background-color: #aaffcc;
-        }
+        
     }
-    @media (min-width: 800px) and (max-width: 1999px) {
+    @media (min-width: 800px) {
         #about_me {
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30px;
+            margin-top: 60px;
             margin-bottom: 30px;
-            border-radius: 20px;
             max-width: 700px;
-        }
-    }
-    @media (min-width: 2000px) {
-        #about_me {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            
+            /* Fallback */
+            border-width: 1px;
+            border-style: solid;
             border-radius: 20px;
-            max-width: 700px;
+            /* Desired */
+            border-image-source: url("border.jpg");
+            border-image-slice: 50 60 60 60;
+            border-image-outset: 10px 10px 20px 30px;
+            border-image-width: 50px 60px 60px 60px;
         }
     }
 
@@ -293,15 +300,17 @@
     </div>
 </div>
 
-<div id="about_me_container">
-    <div id="about_me">
-        <h1>Elisabeth Brånsgård</h1>
-        <p>Jag är en person som gillar humlor. Och kreativitet. Och miljö, psykologi; och jag är utbildad, och jag har erfarenhet, köp mig.</p>
-        <p>Jag har också gjort vernissage och samarbetat med folk.</p>
-    </div>
-    <div id="about_me-mobile_filler">
-    </div>
+
+<div id="about_me">
+    <h1>Elisabeth Brånsgård</h1>
+    <p>Jag är en person som gillar humlor. Och kreativitet. Och miljö, psykologi; och jag är utbildad, och jag har erfarenhet, köp mig.</p>
+    <p>Jag har också gjort vernissage och samarbetat med folk.</p>
+    <h2>The classic text</h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <h2>Where does it come from</h2>
+    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 </div>
+
 
 <script>
     let current = 800;
