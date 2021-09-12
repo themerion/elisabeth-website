@@ -167,19 +167,50 @@
     }
 
     /* =====================================
+         aktuellt
+       ===================================== */
+    #aktuellt {
+        padding: 20px;
+        background-color: #e4d986;
+    }
+
+    @media (max-width: 799px) {
+        
+    }
+    @media (min-width: 800px) {
+        #aktuellt {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            
+            /* Fallback */
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 20px;
+            /* Desired */
+            border-image-source: url("border-2.jpg");
+            border-image-slice: 50 60 60 60;
+            border-image-outset: 10px 10px 20px 30px;
+            border-image-width: 50px 60px 60px 60px;
+        }
+    }
+
+    /* =====================================
          about_me
        ===================================== */
     #about_me {
         padding: 20px;
         background-color: #a3d9d3;
     }
-    #about_me h1 {
+    #about_me h1, #aktuellt h1 {
         text-align: center;
         margin-top: 0px;
         font-family: 'Sweet Purple';
         font-size: 36px;
     }
-    #about_me h2 {
+    #about_me h2, #aktuellt h2 {
         text-align: center;
         font-family: 'Sweet Purple';
         font-size: 24px;
@@ -299,6 +330,12 @@
             </div>
         </nav>
     </div>
+</div>
+
+
+<div id="aktuellt">
+    <h2>Teater: Den stora premiären</h2>
+    <p>Jag regisserar <a href="http://www.lekebergsrevyn.se/index.asp">Lekebergs Revysällskap</a> i höst. Det blir kul!</p>
 </div>
 
 
