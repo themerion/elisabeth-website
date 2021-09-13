@@ -24,6 +24,7 @@
     @media (min-width: 800px) {
         #small { display: none }
         #large { display: block }
+        .mobile-transition { display: none; }
     }
     @media (max-width: 799px) {
         #small { display: block; }
@@ -64,10 +65,27 @@
     
     /* -- MOBILE -- */
 
+    #t0 {
+        height: 10px;
+        background: linear-gradient(gray,white);
+        max-width:600px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    #t1 {
+        height: 6px;
+        background: linear-gradient(white,#e4d986);
+    }
+    #t2 {
+        height: 6px;
+        background: linear-gradient(#e4d986,#a3d9d3);
+    }
+
     #small_img {
         margin-left: auto;
         margin-right: auto;
         max-width: 600px;
+        line-height: 0px;
     }
 
     #small_img img {
@@ -75,18 +93,35 @@
     }
 
     #small_menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        /*background: linear-gradient(to bottom, #898,#fff, #fff, #fff);*/
     }
     .small_menu_item {
+        position: relative;
         text-align: center;
-        padding-top: 0.8em;
-        padding-bottom: 0.8em;
         font-size: 24px;
+        font-family: 'Sweet Purple';
+        margin: 10px;
+
+        box-shadow: 0px 0px 5px gray;
+        border-radius: 50%;
+        background-color: white;
+        overflow: hidden;
     }
-    .small_menu_item:nth-child(odd) {
-        background-color: #eeccaa;
+    .small_menu_item:hover {
+        box-shadow: 0px 0px 5px black;
     }
-    .small_menu_item:nth-child(even) {
-        background-color: #eeaacc;
+    .small_menu_item a {
+        padding: 0.8em;
+        display: inline-block;
+    }
+    .small_menu_item a, .small_menu_item a:hover, .small_menu_item a:visited {
+        text-decoration: none;
+        color: black;
     }
 
     /* -- DESKTOP -- */
@@ -258,25 +293,36 @@
         <div id="small_img">
             <img src="elisabeth-on-top.jpg" />
         </div>
-        <div id="small_menu">
-            <nav>
+        <div id="t0" class="mobile-transition"></div>
+        <nav>
+            <div id="small_menu">
                 <div class="small_menu_item">
-                    <a href="https://www.google.com">Psykologi</a>
+                    <a href="https://www.google.com">
+                        Psykologi
+                    </a>
                 </div>
                 <div class="small_menu_item">
-                    Teater
+                    <a href="https://www.google.com">
+                        Teater
+                    </a>
                 </div>
                 <div class="small_menu_item">
-                    Klimat
-		</div>
+                    <a href="https://www.google.com">
+                        Klimat
+                    </a>
+		        </div>
                 <div class="small_menu_item">
-                    Konst
+                    <a href="https://www.google.com">
+                        Konst
+                    </a>
                 </div>
                 <div class="small_menu_item">
-                    Pyssel
+                    <a href="https://www.google.com">
+                        Pyssel
+                    </a>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </div>
 </div>
 
@@ -332,12 +378,14 @@
     </div>
 </div>
 
+<div id="t1" class="mobile-transition"></div>
 
 <div id="aktuellt">
     <h2>Teater: Den stora premiären</h2>
     <p>Jag regisserar <a href="http://www.lekebergsrevyn.se/index.asp">Lekebergs Revysällskap</a> i höst. Det blir kul!</p>
 </div>
 
+<div id="t2" class="mobile-transition"></div>
 
 <div id="about_me">
     <h1>Elisabeth Brånsgård</h1>
