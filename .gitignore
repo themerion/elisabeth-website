@@ -1,0 +1,4 @@
+deploy/obj/*
+deploy/bin/*
+.vscode/*
+deploy/.vscode/*
