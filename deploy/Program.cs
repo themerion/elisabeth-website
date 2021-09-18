@@ -16,7 +16,10 @@ namespace deploy
             Console.WriteLine("Utgår från: " + sourceRoot);
             Console.WriteLine("Laddar upp resurser från: " + resourcesRoot);
 
-            string password = AquirePassword();
+            string password = PasswordReader.TryInOrder()
+                .ReadCommandLineArguments()
+                .ReadFromFileInHomeDirectory()
+                .GetPassword();
 
             // Upload Resources
             foreach(var file in Directory.EnumerateFiles(resourcesRoot))
@@ -26,16 +29,6 @@ namespace deploy
 
             // Upload index.html => font-page.php
             UploadFile(indexPath, "wp-content/themes/phlox", "front-page.php", password);
-        }
-
-        public static string AquirePassword() {
-            string passwordFile = Path.Join(Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile), "elisabeth-blog-pwd.txt");
-            Console.WriteLine("Läser FTP-lösenord från första raden i filen: '"+passwordFile+"'");
-            string pwd = File.ReadLines(passwordFile).FirstOrDefault();
-
-            if(string.IsNullOrWhiteSpace(pwd))
-                throw new Exception("Kunde inte läsa lösenord.");
-            return pwd;
         }
 
         public static void UploadFile(string sourcePath, string destinationFolder, string destinationFileName, string password)
