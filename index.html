@@ -3,328 +3,25 @@
 <head>
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-    @font-face {
-        font-family: 'Sweet Purple';
-        src: url('sweet purple.ttf');
-    }
-
-    html, body {
-        min-height: 100vh;
-        margin: 0px;
-        padding: 0px;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-
-    @media (min-width: 800px) {
-        #small { display: none }
-        #large { display: block }
-        .mobile-transition { display: none; }
-    }
-    @media (max-width: 799px) {
-        #small { display: block; }
-        #large { display: none }
-        #large_content { display: none }
-    }
-    
-    /* =====================================
-         header
-       ===================================== */
-    
-    #header {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #header_img_container {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    #header_img {
-        max-width: 100%;
-    }
-    @media (max-width: 799px) {
-        #header {
-            width: 100%;
-        }
-    }
-    @media (min-width: 800px) and (max-width: 1999px) {
-        #header {
-            width: 800px;
-        }
-    }
-    @media (min-width: 1999px) {
-        #header {
-            width: 1200px;
-        }
-    }
-    
-    /* -- MOBILE -- */
-
-    #t0 {
-        height: 10px;
-        background: linear-gradient(gray,white);
-        max-width:600px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    #t1 {
-        height: 6px;
-        background: linear-gradient(to top,#e4d986,white);
-    }
-    #t2 {
-        height: 6px;
-        background: linear-gradient(#e4d986,white);
-        
-    }
-    #t3 {
-        height: 6px;
-        background: linear-gradient(white,#a3d9d3);
-    }
-
-    #small_img {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 600px;
-        line-height: 0px;
-    }
-
-    #small_img img {
-        width: 100%;
-    }
-
-    #small_menu {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        /*background: linear-gradient(to bottom, #898,#fff, #fff, #fff);*/
-    }
-    .small_menu_item {
-        position: relative;
-        text-align: center;
-        font-size: 24px;
-        font-family: 'Sweet Purple';
-        margin: 10px;
-
-        box-shadow: 0px 0px 5px gray;
-        border-radius: 50%;
-        background-color: white;
-        overflow: hidden;
-    }
-    .small_menu_item:hover {
-        box-shadow: 0px 0px 5px black;
-    }
-    .small_menu_item a {
-        padding: 0.8em;
-        display: inline-block;
-    }
-    .small_menu_item a, .small_menu_item a:hover, .small_menu_item a:visited {
-        text-decoration: none;
-        color: black;
-    }
-
-    /* -- DESKTOP -- */
-
-    #large {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #large_content {
-        position: relative;
-    }
-
-    #center_img {
-        position: relative;
-        background-color: gray;
-    }
-
-    /* =====================================
-         large_menu_item
-       ===================================== */
-
-    .large_menu_item {
-        border-radius: 50%;
-        background-color: white;
-        box-shadow: 0px 0px 10px gray;
-    }
-    
-    .large_menu_item a, .large_menu_item a:visited, .large_menu_item a:hover  {
-        text-decoration: none;
-        color: #222;
-    }
-
-    .large_menu_item_text {
-        position: absolute;
-        z-index: 10;
-        bottom: -15%;
-        text-align: center;
-        width: 100%;
-        font-size: 40px;
-        font-family: 'Sweet Purple','Times New Roman', Times, serif;
-        color: black;
-        text-shadow: 0px 0px 5px white;
-
-    }
-
-    .large_menu_item_image {
-        position: absolute;
-        z-index: 0;
-        top: 0px;
-        left: 0px;
-        border-radius: 50%;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    .large_menu_item_image a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-    }
-    
-
-    .large_menu_item_image img {
-        width: 80%;
-        height: 80%;
-    }
-
-    .large_menu_item_active {
-        box-shadow: 0px 0px 10px black;
-    }
-    .large_menu_item_active .large_menu_item_text {
-        text-shadow: 0px 0px 10px #3b8;
-    }
-
-    /* =====================================
-         aktuellt
-       ===================================== */
-    #aktuellt {
-        padding: 20px;
-        background-color: #e4d986;
-    }
-
-    #aktuellt li {
-        margin-bottom: 1em;
-        margin-top: 1em;
-    }
-
-    @media (max-width: 799px) {
-        
-    }
-    @media (min-width: 800px) {
-        #aktuellt h1 {
-            display: none;
-        }
-
-        #aktuellt {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 60px;
-            margin-bottom: 30px;
-            max-width: 500px;
-            
-            /* Fallback */
-            border-width: 1px;
-            border-style: solid;
-            border-radius: 20px;
-            /* Desired */
-            border-image-source: url("border-2.jpg");
-            border-image-slice: 50 60 60 60;
-            border-image-outset: 10px 10px 20px 30px;
-            border-image-width: 50px 60px 60px 60px;
-        }
-    }
-
-    /* =====================================
-         contact
-        ===================================== */
-    #contact_me {
-        text-align:center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 600px;
-        padding: 20px;
-    }
-
-    
-    @media (max-width: 799px) {
-        
-    }
-    @media (min-width: 800px) {
-    
-    }
-
-    /* =====================================
-         about_me
-       ===================================== */
-    #about_me {
-        padding: 20px;
-        background-color: #a3d9d3;
-    }
-    #about_me h1, #aktuellt h1 {
-        text-align: center;
-        margin-top: 0px;
-        font-family: 'Sweet Purple';
-        font-size: 36px;
-    }
-    #about_me h2, #aktuellt h2 {
-        text-align: center;
-        font-family: 'Sweet Purple';
-        font-size: 24px;
-    }
-
-    @media (max-width: 799px) {
-        
-    }
-    @media (min-width: 800px) {
-        #about_me {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 30px;
-            margin-bottom: 60px;
-            max-width: 700px;
-            
-            /* Fallback */
-            border-width: 1px;
-            border-style: solid;
-            border-radius: 20px;
-            /* Desired */
-            border-image-source: url("border.jpg");
-            border-image-slice: 50 60 60 60;
-            border-image-outset: 10px 10px 20px 30px;
-            border-image-width: 50px 60px 60px 60px;
-        }
-    }
-
-</style>
+    <link rel="stylesheet" href="/frontpage-resources/frontpage-style.css">
 </head>
 <body>
 
 <div id="header">
     <div id="header_img_container">
-        <img id="header_img" src="cropped-loggatest-hemsida.png">
+        <img id="header_img" src="/frontpage-resources/cropped-loggatest-hemsida.png">
     </div>
 </div>
 
 
-<!-- MOBILE -->
-
+<!-- -------------------
+    Menyn för mobiler
+   --------------------- -->
 
 <div id="small">
     <div id="small_content">
         <div id="small_img">
-            <img src="elisabeth-on-top.jpg" />
+            <img src="/frontpage-resources/elisabeth-on-top.jpg" />
         </div>
         <div id="t0" class="mobile-transition"></div>
         <nav>
@@ -360,19 +57,20 @@
 </div>
 
 
-<!-- DESKTOP -->
-
+<!-- -------------------
+    Menyn (kategori-knapparna) för datorer
+   --------------------- -->
 
 <div id="large">
     <div id="large_content">
-        <img id="center_img" src="elisabeth-in-center.jpg" />
+        <img id="center_img" src="/frontpage-resources/elisabeth-in-center.jpg" />
         <nav>
             <div class="large_menu_item">
                 <div class="large_menu_item_text">
                     <a href="https://www.google.com">Psykologi</a>
                 </div>
                 <div class="large_menu_item_image">
-                    <a href="https://www.google.com"><img src="kategori-psykologi.jpg"></a>
+                    <a href="https://www.google.com"><img src="/frontpage-resources/kategori-psykologi.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
@@ -380,7 +78,7 @@
                     <a href="https://www.google.com">Teater</a>
                 </div>
                 <div class="large_menu_item_image">
-                    <a href="https://www.google.com"><img src="kategori-teater.jpg"></a>
+                    <a href="https://www.google.com"><img src="/frontpage-resources/kategori-teater.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
@@ -388,7 +86,7 @@
                     <a href="https://www.google.com">Klimat</a>
                 </div>
                 <div class="large_menu_item_image">
-                    <a href="https://www.google.com"><img src="kategori-planta.jpg"></a>
+                    <a href="https://www.google.com"><img src="/frontpage-resources/kategori-planta.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
@@ -396,7 +94,7 @@
                     <a href="https://www.google.com">Konst</a>
                 </div>
                 <div class="large_menu_item_image">
-                    <a href="https://www.google.com"><img src="kategori-konst.jpg"></a>
+                    <a href="https://www.google.com"><img src="/frontpage-resources/kategori-konst.jpg"></a>
                 </div>
             </div>
             <div class="large_menu_item">
@@ -404,7 +102,7 @@
                     <a href="https://www.google.com">Pyssel</a>
                 </div>
                 <div class="large_menu_item_image">
-                    <a href="https://www.google.com"><img src="kategori-pyssel.jpg"></a>
+                    <a href="https://www.google.com"><img src="/frontpage-resources/kategori-pyssel.jpg"></a>
                 </div>
             </div>
         </nav>
@@ -412,6 +110,11 @@
 </div>
 
 <div id="t1" class="mobile-transition"></div>
+
+
+<!-- -------------------
+    Aktuellt-rutan
+   --------------------- -->
 
 <div id="aktuellt">
     <h1>Aktuellt</h1>
@@ -430,6 +133,11 @@
 
 <div id="t2" class="mobile-transition"></div>
 
+
+<!-- -------------------
+    Kontaktinformation
+   --------------------- -->
+
 <div id="contact_me">
 <p>Vill du kontakta mig för ett uppdrag eller har du en fråga att ställa, tveka inte att höra av dig!</p>
 
@@ -442,6 +150,11 @@
 </div>
 
 <div id="t3" class="mobile-transition"></div>
+
+
+<!-- -------------------
+    Om mig-rutan
+   --------------------- -->
 
 <div id="about_me">
     <h1>Elisabeth Brånsgård</h1>
@@ -528,95 +241,6 @@
     </p>
 </div>
 
-
-<script>
-    let current = 800;
-
-    function drawLarge() {
-        let totSize, itemRadius, imgSize;
-        if(current == 800) {
-            totSize = 800;
-            itemRadius = 75;
-            imgSize = 500;
-        } else if(current == 1200) {
-            totSize = 1200;
-            itemRadius = 100;
-            imgSize = 700;
-        } else {
-            throw "Expected size to be 800 or 1200";
-        }
-
-        const scaleY = 0.8;
-        const large = document.querySelector("#large_content");
-        const menuItems = document.querySelectorAll(".large_menu_item");
-
-        large.style.width = totSize+"px";
-        large.style.height = Math.round(totSize*scaleY)+"px";
-
-        const startingOffset = Math.PI/12;
-        const margin = 30;
-
-        const centerX = totSize / 2;
-        const centerY = (totSize*scaleY / 2);
-        const increase = Math.PI*2 / menuItems.length;
-
-        const setPolarPosition = (menuItem, radians, distance) => {
-            const xpos = centerX + Math.cos(radians)*distance - itemRadius;
-            const ypos = centerY + Math.sin(radians)*distance*scaleY - itemRadius;
-
-            menuItem.style.left = xpos+"px";
-            menuItem.style.top = ypos+"px";
-        };
-
-        let angle = startingOffset;
-        for(const menuItem of menuItems) {
-            menuItem.style.position = "absolute";
-            menuItem.style.width = (itemRadius*2)+"px";
-            menuItem.style.height = (itemRadius*2)+"px";
-
-            setPolarPosition(menuItem, angle, centerX - itemRadius - margin);
-
-            angle += increase;
-        }
-
-        const cimg = document.querySelector("#center_img");
-        cimg.style.left = (centerX - imgSize/2)+"px";
-        cimg.style.top = (centerY - imgSize/2)+"px";
-        cimg.style.width = imgSize+"px";
-        cimg.style.height = imgSize+"px";
-    }
-
-    window.addEventListener('resize', evt => {
-        if(evalSize()) {
-            drawLarge();
-        }
-    });
-    
-    function evalSize() {
-        if(current != 1200 && window.innerWidth >= 2000) {
-            current = 1200;
-            return true;
-        } else if(current != 800 && window.innerWidth < 2000) {
-            current = 800;
-            return true;
-        }
-    }
-    
-    evalSize();
-    drawLarge();
-
-/* Hightlight menu items (:hover does not quite handle both the text and the button, since the text is outside of it...)*/
-
-    const as = document.querySelectorAll(".large_menu_item a");
-    console.log(as);
-    for(const a of as) {
-        a.addEventListener("mouseenter", evt => {
-            console.log(evt.target);
-            evt.target.closest(".large_menu_item").classList.add("large_menu_item_active");
-        });
-        a.addEventListener("mouseleave", evt => evt.target.closest(".large_menu_item").classList.remove("large_menu_item_active"));
-    }
-
-</script>
+<script src="/frontpage-resources/frontpage-script.js"></script>
 </body>
 </html>
